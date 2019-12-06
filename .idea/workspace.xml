@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bba3bee-a71e-41d3-b02c-4908e2a3a13c" name="Default Changelist" comment="" />
+    <list default="true" id="5bba3bee-a71e-41d3-b02c-4908e2a3a13c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint 2.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint 3.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint 4.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint 5.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint 6.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/9875Lecture13-2019-Rough volatility-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/9875Lecture13-2019-Rough volatility.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oxfordRvData.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oxfordmanrealizedvolatilityindices.csv" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +40,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TiDjt4ns975efAEwBTpw6oUANt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -62,22 +77,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573934160694</updated>
-      <workItem from="1573934165088" duration="6585000" />
+      <workItem from="1573934165088" duration="6711000" />
+      <workItem from="1575414289104" duration="151000" />
+      <workItem from="1575425754186" duration="225000" />
+      <workItem from="1575589343960" duration="210000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/utils/forward_graph.py</url>
-          <line>161</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

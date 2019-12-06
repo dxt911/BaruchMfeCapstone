@@ -1,7 +1,7 @@
 import numpy as np
 from .rough_vol import RoughVol
 import matplotlib.pyplot as plt
-from .har import HarModel,LogHarModelWithReturn
+from .har import HarModel, LogHarModelWithReturn
 
 class forward_graph_rough:
     def __init__(self, model=RoughVol(), fit_period=200, lower_bound=1, higher_bound=100):
