@@ -16,4 +16,10 @@ class ArVol:
     def predict(self, data):
         data = np.log(data)
         params = self.params()
-        return np.exp(np.convolve(data,params[1::-1],'valid')+params[0])
+        return np.exp(np.convolve(data, params[1::-1], 'valid') + params[0])
+
+    def __repr__(self):
+        return f"AR {self.p}"
+
+    def __str__(self):
+        return f"AR {self.p}"

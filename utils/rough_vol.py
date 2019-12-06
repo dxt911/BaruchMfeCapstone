@@ -56,7 +56,12 @@ class RoughVol:
             result.append(tempt_result / self._A(self.fit_period,self.H, self.forward))
         return np.exp(result)
 
-    def kernal(self, forward=1, lag=10, H=None):
+    def kernal(self, forward=None, lag=None, H=None):
+        if forward is None:
+            forward = self.forward
+            
+        if lag is None:
+            lag = self.fit_period
 
         if H is None:
             H = self.H
