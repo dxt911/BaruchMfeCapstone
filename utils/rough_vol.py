@@ -55,3 +55,19 @@ class RoughVol:
                  range(1, self.fit_period + 1)], dtype=np.float64))
             result.append(tempt_result / self._A(self.fit_period,self.H, self.forward))
         return np.exp(result)
+
+    def kernal(self, forward=1, lag=10, H=None):
+
+        if H is None:
+            H = self.H
+        gamma = 0.5 - H
+        s_star = gamma ** (1 / (1 - gamma))
+
+        kernals = np.array([(1 / ((j + 0.5 + forward) * ((j + .5) ** (H + 0.5)))) for j in range(0, lag + 1)])
+        kernals[0] = 1 / (s_star + forward) / ((s_star) ** (H + .5))
+        kernals = kernals / np.sum(kernals)
+
+        return kernals
+
+
+
