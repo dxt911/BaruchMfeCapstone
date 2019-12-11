@@ -6,6 +6,7 @@ import numpy as np
 from torch.optim import Adam
 import matplotlib.pyplot as plt
 from tqdm import tqdm_notebook as tqdm
+from .rough_vol import RoughVol
 
 
 class _assis_net(nn.Module):
@@ -98,4 +99,77 @@ class NeuralNetVol:
         tsdata = (tsdata-self.mean) / self.std
         X = self._organize_input_data(tsdata, if_fit=False)
         x = torch.tensor(X, dtype = torch.float)
-        return (self.nnet(x).detach().numpy() * self.std) + self.mean
+        return np.exp((self.nnet(x).detach().numpy() * self.std) + self.mean)
+
+class ResNeuralNetVol(NeuralNetVol):
+    def __init__(self, hiddenlayer:list = [100], forward=100, fitperiod=200):
+        super(ResNeuralNetVol, self).__init__(hiddenlayer, forward, fitperiod)
+
+    def _organize_output_data(self, data):
+        return np.concatenate(np.array([data[idx + self.fitperiod:idx + self.fitperiod + self.forward]-data[idx+self.fitperiod-1] for idx in
+                                        range(len(data) - self.forward - self.fitperiod + 1)])[np.newaxis, :], axis=0)
+
+    def predict(self, tsdata):
+        tsdata = np.log(tsdata)
+        tsdata = (tsdata - self.mean) / self.std
+        X = self._organize_input_data(tsdata, if_fit=False)
+        x = torch.tensor(X, dtype=torch.float)
+
+        return np.exp(((self.nnet(x).detach().numpy()+X[:,-1][:,np.newaxis]) * self.std) + self.mean)
+
+
+class ResNeuralNetVolSd(ResNeuralNetVol):
+    def __init__(self, hiddenlayer: list = [100], forward = 100, fitperiod=200):
+        super(ResNeuralNetVolSd, self).__init__(hiddenlayer, forward, fitperiod)
+
+    def fit(self, tsdata: np.ndarray, lrs=[1, 1e-1, 1e-2, 1e-3, 1e-4], steps = 200, draw_loss = False, show_process=True, verbose=0):
+        tsdata = np.log(tsdata)
+        self.mean = np.mean(tsdata)
+        self.std = np.std(tsdata)
+        tsdata = (tsdata - self.mean) / self.std
+        if verbose:
+            print(tsdata, np.mean(tsdata), np.std(tsdata))
+
+        X = self._organize_input_data(tsdata, True)
+        if verbose >= 1:
+            print(X)
+        Y = self._organize_output_data(tsdata)
+
+        var_1 = torch.tensor(np.linalg.inv(np.cov(Y.T)),dtype=torch.float)
+
+        x = torch.tensor(X, dtype=torch.float)
+        y = torch.tensor(Y, dtype=torch.float)
+
+        optimizer = Adam(self.nnet.parameters(), lr=lrs[0])
+
+        loss_record = []
+
+
+        def train(n):
+
+            optimizer.zero_grad()
+            y_pred = self.nnet(x)
+            diff = y - y_pred
+            loss = torch.mean(torch.sum(torch.tensordot(diff, var_1, dims=([1],[0])) * diff, dim=1), dim=0)
+            loss.backward()
+            optimizer.step()
+            loss_record.append(loss.item())
+
+        for lr in lrs:
+            if show_process:
+                iters = tqdm(range(steps))
+            else:
+                iters = range(steps)
+            optimizer = Adam(self.nnet.parameters(), lr=lr)
+            for i in iters:
+                train(i)
+
+        if draw_loss:
+            plt.figure(figsize=(8, 8))
+            plt.plot(np.log(loss_record))
+            plt.ylabel("loss")
+            plt.xlabel("training step")
+            plt.show()
+        return loss_record[-1]
+
+
