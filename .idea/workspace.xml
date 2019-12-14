@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="5bba3bee-a71e-41d3-b02c-4908e2a3a13c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Neural Net.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Neural Net.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Neural Net-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/9875-13.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompareGraph.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/CompareGraph.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LRV3.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Neural Net.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/Compare RoughVol Har.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/MastersProjectTemplate.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/MastersProjectTemplate.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/RoughVol AR kernel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/RoughVol AR kernel2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/SVIarb.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/paper/nnet RoughVol.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +84,7 @@
       <workItem from="1575414289104" duration="151000" />
       <workItem from="1575425754186" duration="225000" />
       <workItem from="1575589343960" duration="30251000" />
+      <workItem from="1576360976627" duration="276000" />
     </task>
     <servers />
   </component>
